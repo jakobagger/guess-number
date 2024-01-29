@@ -11,7 +11,7 @@ function start(){
 }
 
 function generateRandomNumber(){
-    return 42;
+    return Math.floor(Math.random()*99)+1;
 }
 
 function receiveGuess(event){
@@ -21,6 +21,7 @@ function receiveGuess(event){
     const value = form.guess.valueAsNumber;
     console.log("Received guess!");
     console.log(value);
+    form.guess.value = "";
     checkGuess(value);
 }
 
@@ -41,7 +42,7 @@ function guessIsCorrect(guess){
     const list = document.querySelector("#guess-list");
     const html = `<li>You guessed ${guess}, that was the correct number, hooray!</li>`;
     list.insertAdjacentHTML("beforeend", html);
-    
+    document.querySelector("#guess-form").remove();
 }
 
 function guessIsTooLow(guess){
