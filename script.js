@@ -21,6 +21,7 @@ function receiveGuess(event){
     const value = form.guess.valueAsNumber;
     console.log("Received guess!");
     console.log(value);
+    form.guess.value = "";
     checkGuess(value);
 }
 
